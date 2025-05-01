@@ -73,6 +73,9 @@ class LinearRays():
 					w = 1e5 # just any high value
 					print(f"Hooray! A real intersection at {m} was found! This is super rare when working with this kind of position :)")
 
+					if lamb < 0 or phi < 0:
+						print(f"This intersection has negative values for either lambda ({lamb}) or phi ({phi}), which may be physically not possible")
+
 				# else find the middle of the minimum distance vector
 				else:
 					cb = np.dot(c,b)
@@ -84,6 +87,9 @@ class LinearRays():
 					A = np.array([[bb, -cb],[cb, -cc]])
 
 					lamb, phi = tuple(np.linalg.solve(A,a))
+
+					if lamb < 0 or phi < 0:
+						print(f"This intersection has negative values for either lambda ({lamb}) or phi ({phi}), which may be physically not possible")
 
 					m = (p+q+lamb*b+phi*c)/2
 

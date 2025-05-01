@@ -33,6 +33,7 @@ class BlenderCam:
 		:param alpha, beta, gamma: euler angles in radians
 		:type alpha, beta, gamma: float
 		"""
+		# TODO: handle locking in
 		p = [alpha, beta, gamma]
 		cx, cy, cz = tuple([math.cos(i) for i in p])
 		sx, sy, sz = tuple([math.sin(i) for i in p])
